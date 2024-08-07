@@ -45,10 +45,11 @@ def main(page: ft.Page):
     
     page.window.width = 450
 
+    icon_widget = ft.Image(src=os.path.join(os.path.expanduser('~'), "PortPyTech", "Archivos", "LogoNoVector.png"))
     client_name_input = ft.TextField(label="Client Name")
     app_name_input = ft.TextField(label="Application Name")
     invoice_type_input = ft.TextField(label="Invoice Type (1-4)")
-    invoice_summary = ft.Text(value=f"1. Documentación\n2. QGIS\n3. Consultoría\n4. Ingeniería\n")
+    invoice_summary = ft.Text(value="1. Documentación\n2. QGIS\n3. Consultoría\n4. Ingeniería")
     
     generate_project_button = ft.ElevatedButton(
         text="Generate Project Name",
@@ -62,16 +63,29 @@ def main(page: ft.Page):
     
     create_directory_checkbox = ft.Checkbox(label="Create Directory", value=False)
     
+    project_name_container = ft.Container(
+        content=ft.Column([app_name_input, generate_project_button, create_directory_checkbox]),
+        border=ft.border.all(2, ft.colors.BLACK),
+        border_radius=10,
+        padding=10,
+        margin=10
+    )
+    
+    project_invoice_container = ft.Container(
+        content=ft.Column([invoice_summary, invoice_type_input, generate_invoice_button]),
+        border=ft.border.all(2, ft.colors.BLACK),
+        border_radius=10,
+        padding=10,
+        margin=10
+    )
+    
     result_text = ft.Text()
     
     page.add(
+        icon_widget,
         client_name_input,
-        app_name_input,
-        generate_project_button,
-        create_directory_checkbox,
-        invoice_summary,
-        invoice_type_input,
-        generate_invoice_button,
+        project_name_container,
+        project_invoice_container,
         result_text
     )
 

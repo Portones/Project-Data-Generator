@@ -43,9 +43,11 @@ def main(page: ft.Page):
         result_text.value = invoice_name
         result_text.update()
     
-    page.window.width = 450
+    page.vertical_alignment = "center"
+    page.horizontal_alignment = "center"
+    page.padding = ft.padding.only(100, 0, 100, 0)
 
-    icon_widget = ft.Image(src=os.path.join(os.path.expanduser('~'), "PortPyTech", "Archivos", "LogoNoVector.png"))
+    icon_widget = ft.Image(src=f"Logo.png", height=380)
     client_name_input = ft.TextField(label="Client Name")
     app_name_input = ft.TextField(label="Application Name")
     invoice_type_input = ft.TextField(label="Invoice Type (1-4)")
@@ -89,4 +91,4 @@ def main(page: ft.Page):
         result_text
     )
 
-ft.app(target=main)
+ft.app(target=main, view=ft.AppView.WEB_BROWSER, assets_dir="assets")

@@ -10,4 +10,5 @@ COPY . .
 
 EXPOSE 8501
 
-CMD ["python", "-m", "flet", "run", "nombre_del_script.py", "--port", "8501", "--web"]
+CMD ["python", "main.py", "--port", "8501", "--web"]
+

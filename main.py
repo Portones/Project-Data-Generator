@@ -91,4 +91,4 @@ def main(page: ft.Page):
         result_text
     )
 
-ft.app(target=main, view=ft.AppView.WEB_BROWSER, assets_dir="assets")
+ft.app(target=main, view=ft.AppView.WEB_BROWSER, assets_dir="assets", port=8501)
